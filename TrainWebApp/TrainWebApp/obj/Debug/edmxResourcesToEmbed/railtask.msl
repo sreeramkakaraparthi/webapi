@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="railtaskModelStoreContainer" CdmEntityContainer="railtaskEntities">
+    <EntitySetMapping Name="STATIONs">
+      <EntityTypeMapping TypeName="railtaskModel.STATION">
+        <MappingFragment StoreEntitySet="STATION">
+          <ScalarProperty Name="no" ColumnName="no" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="arrival_time" ColumnName="arrival_time" />
+          <ScalarProperty Name="train_no" ColumnName="train_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAINS">
+      <EntityTypeMapping TypeName="railtaskModel.TRAIN">
+        <MappingFragment StoreEntitySet="TRAINS">
+          <ScalarProperty Name="train_no" ColumnName="train_no" />
+          <ScalarProperty Name="train_name" ColumnName="train_name" />
+          <ScalarProperty Name="source_name" ColumnName="source_name" />
+          <ScalarProperty Name="destination_name" ColumnName="destination_name" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

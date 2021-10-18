@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="railtaskModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="STATION">
+    <Key>
+      <PropertyRef Name="no" />
+    </Key>
+    <Property Name="no" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="arrival_time" Type="Time" Precision="7" />
+    <Property Name="train_no" Type="Int32" />
+    <NavigationProperty Name="TRAIN" Relationship="Self.FK__STATION__train_n__267ABA7A" FromRole="STATION" ToRole="TRAINS" />
+  </EntityType>
+  <EntityType Name="TRAIN">
+    <Key>
+      <PropertyRef Name="train_no" />
+    </Key>
+    <Property Name="train_no" Type="Int32" Nullable="false" />
+    <Property Name="train_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="source_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="destination_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="start_time" Type="Time" Precision="7" />
+    <Property Name="end_time" Type="Time" Precision="7" />
+    <NavigationProperty Name="STATIONs" Relationship="Self.FK__STATION__train_n__267ABA7A" FromRole="TRAINS" ToRole="STATION" />
+  </EntityType>
+  <Association Name="FK__STATION__train_n__267ABA7A">
+    <End Role="TRAINS" Type="Self.TRAIN" Multiplicity="0..1" />
+    <End Role="STATION" Type="Self.STATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAINS">
+        <PropertyRef Name="train_no" />
+      </Principal>
+      <Dependent Role="STATION">
+        <PropertyRef Name="train_no" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="railtaskEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="STATIONs" EntityType="Self.STATION" />
+    <EntitySet Name="TRAINS" EntityType="Self.TRAIN" />
+    <AssociationSet Name="FK__STATION__train_n__267ABA7A" Association="Self.FK__STATION__train_n__267ABA7A">
+      <End Role="TRAINS" EntitySet="TRAINS" />
+      <End Role="STATION" EntitySet="STATIONs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
