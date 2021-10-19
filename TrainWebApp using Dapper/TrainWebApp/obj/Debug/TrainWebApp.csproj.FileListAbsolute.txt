@@ -1,0 +1,2 @@
+C:\Users\SAILS-DM161\source\repos\TrainWebApp\TrainWebApp\obj\Debug\TrainWebApp.csproj.AssemblyReference.cache
+C:\Users\SAILS-DM161\source\repos\TrainWebApp\TrainWebApp\obj\Debug\TrainWebApp.csproj.CoreCompileInputs.cache
